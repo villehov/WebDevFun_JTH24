@@ -1,0 +1,78 @@
+<div class="registerContainer">
+
+    {{#if user.userID}}
+        <form class="registerForm" action="/profile/modify/{{user.userID}}" method="POST">
+    {{else}}
+        <form class="registerForm" action="/register" method="POST">
+    {{/if}}
+
+        {{#if user.userID}} 
+            <h2 class="headerModify">Modify User</h2>
+        {{else}} 
+            <h2 class="headerRegister">Register</h2>
+        {{/if}}
+
+        {{#if err}}
+            <div class="errorBox">
+                {{err}}
+            </div>
+        {{/if}}
+        {{#if message}}
+            <div class="errorBox"> 
+                {{message}}
+            </div>
+        {{/if}}
+
+        <input type="text" name="username" placeholder="Username" required="required" minlength="3" maxlength="20"
+            {{#if user.username}} value="{{user.username}}" {{/if}}>
+
+        <input type="password" name="password" placeholder="Password" required="required" minlength="5" maxlength="20"
+            {{#if user.password}} value="{{user.password}}" {{/if}}>
+
+        <input type="text" name="fName" placeholder="First Name" required="required" minlength="1" maxlength="20"
+            {{#if user.fName}} value="{{user.fName}}" {{/if}}>
+
+        <input type="text" name="lName" placeholder="Last Name" required="required" minlength="3" maxlength="30"
+            {{#if user.lName}} value="{{user.lName}}" {{/if}}>
+        
+        <input type="text" name="email" placeholder="Email" required="required" minlength="11" maxlength="30"
+            {{#if user.email}} value="{{user.email}}" {{/if}}>
+
+        <input type="number" name="birthYear" placeholder="Birth Year" required="required" min="1900" max="2006"
+            {{#if user.birthYear}} value="{{user.birthYear}}" {{/if}}>
+
+        {{!-- Asume company started in 2010 --}}
+        <input type="number" name="startYear" placeholder="Start Year" required="required" min="2010" max="2024" 
+            {{#if user.startYear}} value="{{user.startYear}}" {{/if}}>
+
+        <input type="text" name="role" placeholder="Role" required="required" minlength="2" maxlength="30"
+            {{#if user.role}} value="{{user.role}}" {{/if}}>
+
+        <label for="jobDesc">Job Description:</label>
+        <textarea id="jobDesc" name="jobDesc" placeholder="Job Description" required="required">{{#if user.jobDesc}}{{user.jobDesc}}{{/if}}</textarea>
+        <div class="char-counter" id="charCounter">0 / 150</div>
+
+        <input type="submit" value="{{#if user.userID}}Confirm Modification{{else}}Register{{/if}}">
+    </form>
+
+</div>
+
+{{!--Character counter logic for the textarea--}}
+{{!-- retrived and modified from chatGPT --}}
+<script>
+    const jobDescInput = document.getElementById('jobDesc');
+    const charCounter = document.getElementById('charCounter');
+    const maxChars = 150;
+
+    jobDescInput.addEventListener('input', function() {
+        const currentLength = jobDescInput.value.length;
+        charCounter.textContent = `${currentLength} / ${maxChars}`;
+        if (currentLength >= maxChars) {
+            jobDescInput.value = jobDescInput.value.substring(0, maxChars);
+        }
+    });
+</script>
+
+
+
+

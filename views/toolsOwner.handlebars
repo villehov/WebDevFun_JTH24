@@ -1,0 +1,27 @@
+
+<div class="toolsOwnerTableContainer">
+
+    <div class="toolsOwnerTableHeaderDiv">
+        <h2>Tools Owner Table</h2>
+        <a href="/toolsOwner/newOwner" class="addOwnerLink">Create a New Owner</a>
+    </div>
+
+    <table class="toolsOwnerTable">
+        <tr class="toolsOwnerTableHeader">
+            <td>UserID</td>
+            <td>Name</td>
+            <td>Tool Name</td>
+            <td>Version</td>
+            <td>Delete</td>
+        </tr>
+        {{#each listOfUserTool}}
+        <tr class="toolsOwnerTableTr">
+            <td>{{userID}}</td>
+            <td class="toolsOwnerTableTdSpecial">{{ firstChar fName }}.{{lName}}</td>
+            <td class="toolsOwnerTableTdSpecial">{{tName}}</td>
+            <td class="toolsOwnerTableTdSpecial">{{version}}</td>
+            <td><a href="/toolsOwner/delete/{{usertoolID}}" class="deleteLink">Delete</a></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

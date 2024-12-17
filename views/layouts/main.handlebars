@@ -1,0 +1,72 @@
+    {{!-- link to stylesheet. Dont know if there is any better place to put this --}}
+    <link rel="stylesheet" href="/css/styling.css">
+ 
+    <nav class="simpleNavBar">
+        <div id="companyNameBox">
+            <a href="/">ABCinc</a>
+        </div>
+        <ul class="navUl">
+            {{#if user}}
+                <li class="liMain"><a href="/">ABCinc</a></li>
+                <li class="liMain"><a href="/profile">Profile</a></li>
+                <li class="liMain"><a href="/personel">Personel</a></li>
+                {{#if isAdmin}}
+                    <li class="liMain"><a href="/tools">Tools</a></li>
+                    <li class="liMain"><a href="/toolsOwner">Tools owner</a></li>
+                    <li class="liMain"><a href="/timeView">Time view</a></li>
+                {{/if}}
+                <li class="liMain"><a href="/registerTime">Register time</a></li>
+                <li class="liMain"><a href="/logout">Logout</a></li>
+            {{else}}    
+                <li class="liMain"><a href="/login">log-in</a></li>
+            {{/if}}
+        </ul>
+        
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <ul class="navUl navUlResponsive" id="responsiveMenu">
+            {{#if user}}
+                <li class="liMain"><a href="/">Home</a></li>
+                <li class="liMain"><a href="/profile">Profile</a></li>
+                <li class="liMain"><a href="/personel">Personel</a></li>
+                {{#if isAdmin}}
+                    <li class="liMain"><a href="/tools">Tools</a></li>
+                    <li class="liMain"><a href="/toolsOwner">Tools owner</a></li>
+                    <li class="liMain"><a href="/timeView">Time view</a></li>
+                {{/if}}
+                <li class="liMain"><a href="/registerTime">Register time</a></li>
+                <li class="liMain"><a href="/logout">Logout</a></li>
+            {{else}}    
+                <li class="liMain"><a href="/login">log-in</a></li>
+            {{/if}}
+            <li class="liMain"><a href="/about">About</a></li>
+            <li class="liMain"><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    {{{body}}}
+
+    <nav class="footer">
+        <ul class="navUl">
+            <li class="liMain"><a href="/about">About</a></li>
+            <li class="liMain"><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    {{!-- chatGPT - responsive menu toggle --}}
+    <script>
+        // Function to toggle the responsive navigation menu
+        function toggleMenu() {
+            const responsiveMenu = document.getElementById('responsiveMenu');
+            responsiveMenu.classList.toggle('show'); // Toggle the 'show' class
+        }
+
+        // Optional: Close the menu if the user clicks outside of it
+        window.onclick = function(event) {
+            const responsiveMenu = document.getElementById('responsiveMenu');
+            if (!event.target.matches('.menu-button') && !responsiveMenu.contains(event.target)) {
+                responsiveMenu.classList.remove('show'); // Hide the menu
+            }
+        }
+    </script>
+
+

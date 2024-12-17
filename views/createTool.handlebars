@@ -1,0 +1,23 @@
+
+
+
+
+
+
+<div class="newToolContainer">
+    <form class="newToolForm" action="createTool" method="POST">
+
+        <h2 id="newToolHeader">CREATE TOOL:</h2>
+
+        <label for="tName">Tool name</label>
+        <input type="text" name="tName" required="required">
+
+        <label for="version">Version</label>
+        <input type="text" name="version" required="required" minlength="2" maxlength="30">
+
+        <label for="price">Price</label>
+        <input type="number" name="price" required="required" min="0" max="5000000">
+
+        <input type="submit" value="Create tool">
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<style>
+
+</style>
+<div class="profileContainer">
+    <div>
+        <h2>{{User.fName}} {{User.lName}}</h2>
+        <p>ID:{{User.userID}}</p>
+        <p>{{User.role}} : {{User.startYear}}</p>
+        <p>{{User.email}}</p>
+        <p class="profileJobDesc">{{User.jobDesc}}</p>
+    </div>
+    <div>
+        <h2>Tools:</h2>
+        <ul class="ulProfile">
+            {{#each Tools}}
+                <li>{{this.tName}} (Version: {{this.version}})</li>
+            {{else}}
+                <li>No tools assigned.</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div>
+        <h2>Latest hour-inputs</h2>
+        <ul class="ulProfile">
+            {{#each Hours}}
+                <li>{{this.noHours}} hours on {{this.inputDate}}</li>
+            {{else}}
+                <li>No hours registered.</li>
+            {{/each}}
+        </ul>
+        <hr>
+        <p>Total hours worked in the past month: {{#if TotalHours}} {{TotalHours}} {{else}} 0 {{/if}} hours</p>
+    </div>
+
+</div>

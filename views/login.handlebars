@@ -1,0 +1,22 @@
+
+
+
+<div class="login-container">
+
+    <form class="login-form" action="/login" method="post">
+        <h2 id="headerLoginForm">LOG-IN</h2>
+        {{#if err}}
+            <div class="message">{{err}}</div>
+        {{/if}}
+        {{#if message}}
+            <div class="message">{{message}}</div>
+        {{/if}}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+        <a class="login-link" href="/register">Don't have an account? Create one</a>
+    </form>
+    
+
+</div>
+

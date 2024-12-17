@@ -1,0 +1,35 @@
+<div class="personelContainer">
+    
+    {{#each User}}
+        <div class="personelBox">
+            <a class="personelBoxLink" href="/profile/{{userID}}">
+                <h2>{{fName}} {{lName}} - {{role}}</h2>
+                {{#if ../isAdmin}}
+                    <a class="personelMDLink" href="/profile/modify/{{userID}}">Modify</a> 
+                    <a class="personelMDLink" href="/profile/delete/{{userID}}">Delete</a>
+                {{/if}} 
+            </a>
+        </div>
+    {{/each}}
+    
+    
+
+    {{!-- Pagination system: chatGPT --}}
+    <div class="pagination">
+    {{#if (gt currentPage 1)}}
+        <a href="/personel?page={{subtract currentPage 1}}">Previous</a>
+    {{/if}}
+    {{#each (range 1 totalPages)}}
+        {{#if (eq this ../currentPage)}}
+            <strong>{{this}}</strong> 
+        {{else}}
+            <a href="/personel?page={{this}}">{{this}}</a>
+        {{/if}}
+    {{/each}}
+    {{#if (lt currentPage totalPages)}}
+        <a href="/personel?page={{add currentPage 1}}">Next</a>
+    {{/if}}
+</div>
+
+</div>
+

@@ -1,0 +1,27 @@
+
+<div class="toolsTableContainer">
+
+    <div class="toolsTableHeaderDiv">
+        <h2>
+            TOOLS TABLE
+        </h2>
+        <a href="tools/createTool" class="addToolLink">Add New Tool</a>
+    </div>
+
+    <table class="toolsTable">
+        <tr class="toolsTableHeader">
+            <td>Tool ID</td>
+            <td>Name</td>
+            <td>Version</td>
+            <td>Price</td>
+        </tr>
+        {{#each Tool}}
+            <tr class="toolsTableTr">
+                <td>{{toolID}}</td>
+                <td class="toolsTableTdSpecial">{{tName}}</td>
+                <td class="toolsTableTdSpecial">{{version}}</td>
+                <td>{{price}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

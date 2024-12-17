@@ -1,0 +1,23 @@
+
+
+<div class="timeViewTableContainer">
+   
+    <div class="timeViewTableHeaderDiv">
+        <h2>Time View</h2>
+    </div>
+
+    <table class="timeViewTable">
+        <tr class="timeViewTableHeader">
+            <td>UserID</td>
+            <td>No. Hours</td>
+            <td>Input Date</td>
+        </tr>
+        {{#each Hours}}
+            <tr class="timeViewTableTr">
+                <td>{{userID}}</td>
+                <td>{{noHours}}</td>
+                <td>{{inputDate}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

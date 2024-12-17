@@ -1,0 +1,22 @@
+
+
+<div class="toolsNewOwnerContainer">
+    <form class="toolsNewOwnerForm" action="/toolsOwner/createOwner" method="POST">
+        <h2 id="toolsNewOwnerHeader">New owner:</h2>
+        <label for="userID">User ID:</label>
+        <select name="userID" required="required">
+            {{#each user}}
+                <option value="{{userID}}">{{userID}}:{{lName}}</option>
+            {{/each}}
+        </select>
+
+        <label for="toolID">Tool:</label>
+        <select name="toolID" required="required">
+            {{#each tools}}
+                <option value="{{this.toolID}}">{{this.tName}} : {{this.version}}</option>
+            {{/each}}
+        </select>
+
+        <input type="submit" value="Create new owner">
+    </form>
+</div>
